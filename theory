@@ -1,0 +1,51 @@
+Logistic Regression
+In some problems the response variable is not normally distributed. For instance, a coin toss can result in two outcomes: heads or tails. The Bernoulli distribution describes the probability distribution of a random variable that can take the positive case with probability P or the negative case with probability 1-P. If the response variable represents a probability, it must be constrained to the range {0,1}.
+
+
+
+In logistic regression, the response variable describes the probability that the outcome is the positive case. If the response variable is equal to or exceeds a discrimination threshold, the positive class is predicted; otherwise, the negative class is predicted.
+
+The response variable is modeled as a function of a linear combination of the input variables using the logistic function.
+
+Since our hypotheses ŷ has to satisfy 0 ≤ ŷ ≤ 1, this can be accomplished by plugging logistic function or “Sigmoid Function”
+
+
+G(z) = 1/(1*e^-Z)
+
+
+The function g(z) maps any real number to the (0, 1) interval, making it useful for transforming an arbitrary-valued function into a function better suited for classification. The following is a plot of the value of the sigmoid function for the range {-6,6}:
+
+
+
+ Let us assume that z is a linear function of a single explanatory variable x. We can then express z as follows:
+
+Z = Wo + Wi * x
+
+
+LOGISTIC Function  G(x)= 1/ (1 + e ^ -(Wo + Wi * x))
+
+
+Note that g(x) is interpreted as the probability of the dependent variable.
+g(x) = 0.7, gives us a probability of 70% that our output is 1. Our probability that our prediction is 0 is just the complement of our probability that it is 1 (e.g. if probability that it is 1 is 70%, then the probability that it is 0 is 30%).
+
+
+The input to the sigmoid function ‘g’ doesn’t need to be linear function. It can very well be a circle or any shape. 
+
+
+ Z = (Wo + W1 * X1^2 + W2 * X2^2)
+
+
+ . The cost function for logistic regression looks like:
+ =>>>> 1/m TOTAL_SUM(COST(G(xi)),Yi)
+
+
+COST(G(xi)),Yi) = -log(G(xi)) if y =    1
+
+
+COST(G(xi)),Yi) = -log(1 - G(xi)) if y =    0
+
+
+J(w) = 1/m TOTAL_SUM(Yi log(G(xi)) + (1-Yi)log(1-G(xi))))
+
+
+Since the cost function is a convex function, we can run the gradient descent algorithm to find the minimum cost.
